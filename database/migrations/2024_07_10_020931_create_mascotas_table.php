@@ -17,7 +17,7 @@ return new class extends Migration
             $table->enum('tipo', ['Perro', 'Gato', 'Cabras']);
             $table->integer('edad')->default(0);
             $table->string('raza', 75);
-            $table->string('color', 15);
+            $table->string('color', 35);
             $table->string('pedigri', 75)->nullable();
 
             $table->unsignedBigInteger('refugio_id');
