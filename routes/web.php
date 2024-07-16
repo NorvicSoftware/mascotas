@@ -1,8 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\Refugio;
-use App\Models\Mascota;
+use App\Http\Controllers\RefugioController;
+use App\Http\Controllers\MascotaController;
+
+
+
+Route::get('/refugios', [RefugioController::class, 'index']);
+
+Route::get('/mascotas', [MascotaController::class, 'index']);
+
+
+
 
 Route::get('/', function () {
     // $refugio = new Refugio();
@@ -35,8 +44,8 @@ Route::get('/', function () {
     // $mascata2->refugio_id = 1;
     // $mascata2->save();
 
-    $refugio = Refugio::find(1);// select * from refugios where id = 1;
+    // $refugio = Refugio::find(1);// select * from refugios where id = 1;
     
 
-    return view('welcome', ['refugio' => $refugio]);
+    return view('welcome');
 });

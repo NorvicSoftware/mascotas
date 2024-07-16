@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Refugio;
+use Illuminate\Support\Facades\DB;
 
 class RefugioSeeder extends Seeder
 {
