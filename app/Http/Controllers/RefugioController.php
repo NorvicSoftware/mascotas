@@ -13,7 +13,7 @@ class RefugioController extends Controller
     public function index()
     {
         $refugios = Refugio::all();
-        // return response()->json($refugios);
+        // return response()->json(csrf_token());
         return view('refugios.listar', ['refugios' => $refugios]);
     }
 
@@ -30,13 +30,21 @@ class RefugioController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nombre' => 'required|max:75',
+            'ciudad' => 'required|min:3|max:35',
+            'encargado' => 'required|max:75',
+        ]);
+
         $refugio = new Refugio();
         $refugio->nombre = $request->nombre;
         $refugio->ciudad = $request->ciudad;
         $refugio->direccion = $request->direccion;
         $refugio->telefono = $request->telefono;
         $refugio->encargado = $request->encargado;
-        $refugio->save();
+        $refugio->save(); 
+
+        return redirect()->action([RefugioController::class, 'index']);
 
     }
 
@@ -70,6 +78,8 @@ class RefugioController extends Controller
         $refugio->telefono = $request->telefono;
         $refugio->encargado = $request->encargado;
         $refugio->save();
+
+        return redirect()->action([RefugioController::class, 'index']);
     }
 
     /**
@@ -79,5 +89,6 @@ class RefugioController extends Controller
     {
         $refugio = Refugio::find($id);
         $refugio->delete();
+        return redirect()->action([RefugioController::class, 'index']);
     }
 }
