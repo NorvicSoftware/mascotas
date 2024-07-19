@@ -1,17 +1,18 @@
 @extends('plantilla')
 @section('contenido')
 <x-menu />
-<h1>LISTADO DE MASCOTAS</h1>
+<h1>REPORTE DE MASCOTAS MAYORES A 5 AÑOS</h1>
+
+<a href="{{ route('reportes.mascota.pdf')}}">GENERAR ARCHIVO PDF</a>
+
+<a href="{{ route('reportes.mascota.excel')}}">GENERAR ARCHIVO EXCEL</a>
 <table class="table">
     <thead>
         <tr>
-            <th scope="col">Nombre</th>
             <th scope="col">Codigo</th>
+            <th scope="col">Nombre</th>
             <th scope="col">Tipo</th>
             <th scope="col">Edad</th>
-            <th scope="col">Raza</th>
-            <th scope="col">Color</th>
-            <th scope="col">Pedigri</th>
             <th scope="col">Refugio</th>
             <th scope="col">Ciudad</th>
         </tr>
@@ -19,20 +20,15 @@
     <tbody>
         @foreach ($mascotas as $mascota)
         <tr>
-            <td>{{ $mascota->nombre }}</td>
             <td>{{ $mascota->codigo }}</td>
+            <td>{{ $mascota->nombre }}</td>
             <td>{{ $mascota->tipo }}</td>
             <td>{{ $mascota->edad }}</td>
-            <td>{{ $mascota->raza }}</td>
-            <td>{{ $mascota->color }}</td>
-            <td>{{ $mascota->pedigri }}</td>
-            <td>{{ $mascota->refugio->nombre }}</td>
-            <td>{{ $mascota->refugio->ciudad }}</td>
+            <td>{{ $mascota->refugio }}</td>
+            <td>{{ $mascota->ciudad }}</td>
         </tr>
         @endforeach
     </tbody>
 </table>
 
-
-<x-menu />
 @endsection

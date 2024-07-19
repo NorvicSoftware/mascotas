@@ -4,7 +4,6 @@
 <h1>LISTADO DE REFUGIOS</h1>
 <div class="botones">
     <button type="button" class="btn btn-primary">Crear nuevo Refugio</button>
-    <!-- <a href="/refugios/registrar" class="btn">Crear nuevo Refugio</a> -->
 </div>
 
 <table class="table">
@@ -42,40 +41,5 @@
         @endforeach
     </tbody>
 </table>
-
-<!-- <table>
-    <thead>
-        <tr>
-            <th>Refugio</th>
-            <th>Ciudad</th>
-            <th>Dirección</th>
-            <th>Telefono</th>
-            <th>Encargado</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach ($refugios as $refugio)
-        <tr>
-            <td>{{ $refugio->nombre }}</td>
-            <td>{{ $refugio->ciudad }}</td>
-            <td>{{ $refugio->direccion }}</td>
-            <td>{{ $refugio->telefono }}</td>
-            <td>{{ $refugio->encargado }}</td>
-            <td>
-                <a href="/refugios/editar/{{$refugio->id }}"> Editar</a>
-                <a href="/refugios/mostrar/{{$refugio->id }}"> Mostrar</a>
-
-                <form action="{{ route('refugios.eliminar', $refugio->id)}}" method="post">
-
-                    <input class="btn btn-default" type="submit" value="Delete" />
-                    @method('delete')
-                    @csrf
-                </form>
-            </td>
-        </tr>
-        @endforeach
-    </tbody>
-</table> -->
 
 @endsection

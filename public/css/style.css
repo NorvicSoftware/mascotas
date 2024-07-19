@@ -1,8 +1,11 @@
 body {
     padding: 20px;
 }
-
-h1 {
+img {
+    width: 20px;
+    height: 20px;
+}
+/* h1 {
     color: #158943;
     text-align: center;
 }
@@ -46,4 +49,4 @@ th {
 }
 p {
     color: #FF2700;
-}
+} */
