@@ -9,28 +9,26 @@ use Illuminate\Support\Facades\DB;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Maatwebsite\Excel\Facades\Excel;
 use  App\Exports\MascotaExport;
+use App\Repositories\MascotaRepository;
 
 class ReporteMascotaController extends Controller
 {
+    protected $mascotasA;
+
+    public function __construct(MascotaRepository $mascotas)
+    {
+        $this->mascotasA = $mascotas;
+    }
+
     public function listar()
     {
-        // $mascotas = Mascota::where('edad', '>', 5)->get();
-        $mascotas = DB::table('mascotas')
-            ->join('refugios', 'refugios.id', '=', 'mascotas.refugio_id')
-            ->select('mascotas.*', 'refugios.nombre as refugio', 'refugios.ciudad')
-            ->where('mascotas.edad', '>', 5)
-            ->get();
-        return view('reportes.mascotas.listar', ['mascotas' => $mascotas]);
+        return view('reportes.mascotas.listar', ['mascotas' => $this->mascotasA->getMascotas()]);
     }
 
     public function pdf()
     {
         $data = [
-            'mascotas' => DB::table('mascotas')
-                ->join('refugios', 'refugios.id', '=', 'mascotas.refugio_id')
-                ->select('mascotas.*', 'refugios.nombre as refugio', 'refugios.ciudad')
-                ->where('mascotas.edad', '>', 5)
-                ->get(),
+            'mascotas' => $this->mascotasA->getMascotas(),
         ];
         $pdf = Pdf::loadView('reportes.mascotas.pdf', $data);
         return $pdf->download('mascotas.pdf');

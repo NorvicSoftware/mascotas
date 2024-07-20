@@ -3,7 +3,8 @@
 <x-menu />
 <h1>LISTADO DE REFUGIOS</h1>
 <div class="botones">
-    <button type="button" class="btn btn-primary">Crear nuevo Refugio</button>
+    <a href="/refugios/registrar">Crear nuevo Refugio</a>
+    <!-- <button type="button" class="btn btn-primary">Crear nuevo Refugio</button> -->
 </div>
 
 <table class="table">
