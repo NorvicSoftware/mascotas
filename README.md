@@ -13,9 +13,11 @@
 ## Introducción
 ¡Bienvenido a la Aplicación de Adopción de Mascotas! Desarrollado en el curso de Laravel 11 Intensivo, Esta aplicación está diseñada para la adopción de mascotas, Muestra las mascotas disponibles en diversos refugios. La aplicación permite a los usuarios navegar por las mascotas disponibles, ver información detallada y poder realizar solicitudes de adopción.
 
+Aplicacion disponible en: <a href="https://mascotas.norvicsoftware.com/" target="_blank">SISTEMA DE MASCOTAS</a>
+
 ## Características
 - **Registro de Refugios**: Registro de Refugios donde estaran las mascotas.
-- **Registro de Personas**: Registro personas..
+- **Registro de Personas**: Registro personas quienes adoptaran las mascotas.
 - **Listados de Mascotas**: Navegar, buscar y registrar mascotas.
 - **Detalles de Mascotas**: Ver información detallada sobre cada mascota.
 - **Solicitudes de Adopción**: Registrar solicitudes para adoptar mascotas.
@@ -32,22 +34,22 @@ Sigue estos pasos para configurar la aplicación en tu máquina local.
 ### Pasos
 1. **Clonar el repositorio**
    ```bash
-   git clone https://github.com/NorvicSoftware/mascotas
-   Ingresamos al proyecto (cd mascotas)
-   Instalamos las dependencias del proyecto (composer install)
+   Clonar el proyecto (git clone https://github.com/NorvicSoftware/mascotas)
+   Ingresar al proyecto (cd mascotas)
+   Instalar las dependencias del proyecto (composer install)
    Crear el archivo de configuración .env (cp .env.example .env)
-   Generamos la llave de la aplicación (php artisan key:generate)
-   Ejecutamos las migraciones y los seeder (php artisan migrate --seed)
-   Ejecutamos el servidor local (php artisan serve)
+   Generar la llave de la aplicación (php artisan key:generate)
+   Ejecutar las migraciones y los seeder (php artisan migrate --seed)
+   Ejecutar el servidor local (php artisan serve)
 
 ### Configuración de la Base de Datos
 1. **SQLite**
-```bash
+   ```bash
    Crear el archivo "database.sqlite" en la carpeta 
    ```
 2. **MySQL**
 
-```bash
+   ```bash
    DB_CONNECTION=mysql
    DB_HOST=127.0.0.1
    DB_PORT=3306
