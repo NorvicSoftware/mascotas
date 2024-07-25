@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <p>Refugio: {{ $refugio->nombre }}</p>
-    <p>Ciudad: {{ $refugio->ciudad }}</p>
-    <p>Encargado: {{ $refugio->encargado }}</p>
-</body>
-</html>
+@extends('plantilla')
+@section('contenido')
+<x-menu />
+<br>
+<div class="container">
+    <h4>Refugio: {{ $refugio->nombre }}</h4>
+    <h4>Ciudad: {{ $refugio->ciudad }}</h4>
+    <h4>Encargado: {{ $refugio->encargado }}</h4>
+</div>
+
+@endsection

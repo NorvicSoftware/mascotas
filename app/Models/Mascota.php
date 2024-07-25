@@ -19,6 +19,7 @@ class Mascota extends Model
         'raza', 
         'color', 
         'pedigri', 
+        'url',
         'refugio_id'
     ];
 

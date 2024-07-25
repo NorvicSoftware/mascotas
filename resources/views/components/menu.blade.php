@@ -7,13 +7,22 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/">INICIO</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="/refugios">REFUGIOS</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/mascotas">MASCOTAS</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/reportes/mascotas">REPORTE DE MASCOTAS 5</a>
+                    <a class="nav-link" href="/personas">PERSONAS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/adopciones">ADOPCIONES</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/reportes/mascotas">REPORTE DE MASCOTAS</a>
                 </li>
             </ul>
         </div>

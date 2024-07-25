@@ -1,14 +1,33 @@
 body {
     padding: 20px;
 }
+
 img {
-    width: 20px;
-    height: 20px;
+    width: 120px;
+    height: 120px;
 }
-/* h1 {
-    color: #158943;
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+
+.content {
     text-align: center;
 }
+
+h1 {
+    color: #d71e0a;
+    font-size: 26px;
+}
+
+p {
+    color: #FF2700;
+}
+
+/* 
 
 table {
     min-width: 100%;
@@ -43,10 +62,8 @@ th {
 
 .btn:hover {
     background-color: #0056b3;
-}
+}*/
+
 .botones {
     margin-bottom: 10px;
 }
-p {
-    color: #FF2700;
-} */

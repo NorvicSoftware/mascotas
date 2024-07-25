@@ -3,8 +3,7 @@
 <x-menu />
 <h1>LISTADO DE REFUGIOS</h1>
 <div class="botones">
-    <a href="/refugios/registrar">Crear nuevo Refugio</a>
-    <!-- <button type="button" class="btn btn-primary">Crear nuevo Refugio</button> -->
+    <a class="btn btn-primary" href="/refugios/registrar" role="button">Crear nuevo Refugio</a>
 </div>
 
 <table class="table">
@@ -22,7 +21,7 @@
     <tbody>
         @foreach ($refugios as $refugio)
         <tr>
-            <th scope="row">{{ $refugio->nombre }}</th>
+            <td>{{ $refugio->nombre }}</td>
             <td>{{ $refugio->ciudad }}</td>
             <td>{{ $refugio->direccion }}</td>
             <td>{{ $refugio->telefono }}</td>

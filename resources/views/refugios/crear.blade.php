@@ -1,36 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="/css/style.css" rel="stylesheet">
-</head>
-<body>
-    <form action="{{ route('refugios.registrar') }}" method="POST">
-        @csrf
-        <label>Refugio</label>
-        <input name="nombre" />
-        @if($errors->has('nombre'))
-        <p>{{ $errors->first('nombre')}}</p>
-        @endif
-        <label>Ciudad</label>
-        <input name="ciudad" />
-        @if($errors->has('ciudad'))
-        <p>{{ $errors->first('ciudad')}}</p>
-        @endif
-        <label>Dirección</label>
-        <input name="direccion" />
-        <label>Telefono</label>
-        <input name="telefono" />
-        <label>Encargado</label>
-        <input name="encargado" />
-        @if($errors->has('encargado'))
-        <p>{{ $errors->first('encargado')}}</p>
-        @endif
-        <button>Guardar</button>
-        
-    </form>
-    <x-menu/>
-</body>
-</html>
+@extends('plantilla')
+@section('contenido')
+<x-menu />
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <form action="{{ route('refugios.registrar') }}" method="POST">
+                @csrf
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Refugio</label>
+                    <input type="text" class="form-control" name="nombre" placeholder="Refugio">
+                </div>
+                @if($errors->has('nombre'))
+                <p>{{ $errors->first('nombre')}}</p>
+                @endif
+                <div class="mb-3">
+                    <label for="ciudad" class="form-label">Ciudad</label>
+                    <input type="text" class="form-control" name="ciudad" placeholder="Ciudad">
+                </div>
+                @if($errors->has('ciudad'))
+                <p>{{ $errors->first('ciudad')}}</p>
+                @endif
+                <div class="mb-3">
+                    <label for="direccion" class="form-label">Dirección</label>
+                    <input type="text" class="form-control" name="direccion" placeholder="Dirección">
+                </div>
+                <div class="mb-3">
+                    <label for="telefono" class="form-label">Teléfono</label>
+                    <input type="text" class="form-control" name="telefono" placeholder="Teléfono">
+                </div>
+                <div class="mb-3">
+                    <label for="encargado" class="form-label">Encargado</label>
+                    <input type="text" class="form-control" name="encargado" placeholder="Encargado">
+                </div>
+                @if($errors->has('encargado'))
+                <p>{{ $errors->first('encargado')}}</p>
+                @endif
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </form>
+        </div>
+        <div class="col">
+        </div>
+    </div>
+</div>
+
+@endsection

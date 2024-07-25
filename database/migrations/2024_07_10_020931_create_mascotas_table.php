@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('raza', 75);
             $table->string('color', 35);
             $table->string('pedigri', 75)->nullable();
+            $table->string('url', 75)->nullable();
 
             $table->unsignedBigInteger('refugio_id');
             $table->foreign('refugio_id')->references('id')->on('refugios')->onDelete('cascade');

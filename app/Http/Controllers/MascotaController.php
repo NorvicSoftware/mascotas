@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Mascota;
-Mascota::all();
+use App\Models\Refugio;
 use Illuminate\Support\Facades\DB;
 
 class MascotaController extends Controller
@@ -26,7 +26,8 @@ class MascotaController extends Controller
      */
     public function create()
     {
-        return view('mascotas.crear');
+        $refugios = Refugio::all();
+        return view('mascotas.crear', ['refugios' => $refugios]);
     }
 
     /**
@@ -34,12 +35,16 @@ class MascotaController extends Controller
      */
     public function store(Request $request)
     {
-        // try{
+        $request->validate([
+            'nombre' => 'required|max:75',
+            'codigo' => 'required|min:3|max:35',
+            'tipo' => 'required',
+            'edad' => 'required|numeric',
+            'raza' => 'required',
+            'color' => 'required',
+            'refugio_id' => 'required',
+        ]);
 
-        // }
-        // catch(){
-
-        // }
         $mascota = new Mascota();
         $mascota->nombre = $request->nombre;
         $mascota->codigo = $request->codigo;
@@ -49,8 +54,18 @@ class MascotaController extends Controller
         $mascota->color = $request->color;
         $mascota->pedigri = $request->pedigri;
         $mascota->refugio_id = $request->refugio_id;
+        if ($request->hasFile('image')) {
+            $image_path = 'public/images';
+            $image = $request->file('image');
+            $name_image = time() . "-" . $image->getClientOriginalName();
+            $request->file('image')->storeAs($image_path, $name_image);
+
+            $mascota->url = $name_image;
+            
+        }
         $mascota->save();
 
+        return redirect()->action([MascotaController::class, 'index']);
     }
 
     /**
@@ -67,8 +82,9 @@ class MascotaController extends Controller
      */
     public function edit(string $id)
     {
+        $refugios = Refugio::all();
         $mascota = Mascota::find($id);
-        return view('mascotas.editar', ['mascota' => $mascota]);
+        return view('mascotas.editar', ['refugios' => $refugios, 'mascota' => $mascota]);
     }
 
     /**
@@ -76,6 +92,16 @@ class MascotaController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $request->validate([
+            'nombre' => 'required|max:75',
+            'codigo' => 'required|min:3|max:35',
+            'tipo' => 'required',
+            'edad' => 'required|numeric',
+            'raza' => 'required',
+            'color' => 'required',
+            'refugio_id' => 'required',
+        ]);
+
         $mascota = Mascota::find($id);
         $mascota->nombre = $request->nombre;
         $mascota->codigo = $request->codigo;
@@ -85,7 +111,18 @@ class MascotaController extends Controller
         $mascota->color = $request->color;
         $mascota->pedigri = $request->pedigri;
         $mascota->refugio_id = $request->refugio_id;
+        if ($request->hasFile('image')) {
+            $image_path = 'public/images';
+            $image = $request->file('image');
+            $name_image = time() . "-" . $image->getClientOriginalName();
+            $request->file('image')->storeAs($image_path, $name_image);
+
+            $mascota->url = $name_image;
+        }
+
         $mascota->save();
+
+        return redirect()->action([MascotaController::class, 'index']);
     }
 
     /**
@@ -95,5 +132,7 @@ class MascotaController extends Controller
     {
         $mascota = Mascota::find($id);
         $mascota->delete();
+
+        return redirect()->action([MascotaController::class, 'index']);
     }
 }
