@@ -1,66 +1,69 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Aplicación de Adopción de Mascotas
 
-## About Laravel
+## Tabla de Contenidos
+- [Introducción](#introducción)
+- [Características](#características)
+- [Instalación](#instalación)
+- [Configuración](#configuración)
+- [Uso](#uso)
+- [Licencia](#licencia)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Introducción
+¡Bienvenido a la Aplicación de Adopción de Mascotas! Desarrollado en el curso de Laravel 11 Intensivo, Esta aplicación está diseñada para la adopción de mascotas, Muestra las mascotas disponibles en diversos refugios. La aplicación permite a los usuarios navegar por las mascotas disponibles, ver información detallada y poder realizar solicitudes de adopción.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Características
+- **Registro de Refugios**: Registro de Refugios donde estaran las mascotas.
+- **Registro de Personas**: Registro personas..
+- **Listados de Mascotas**: Navegar, buscar y registrar mascotas.
+- **Detalles de Mascotas**: Ver información detallada sobre cada mascota.
+- **Solicitudes de Adopción**: Registrar solicitudes para adoptar mascotas.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Instalación
+Sigue estos pasos para configurar la aplicación en tu máquina local.
 
-## Learning Laravel
+### Requisitos Previos
+- PHP >= 8.2
+- Composer
+- Un servidor web como Apache o Nginx
+- Una base de datos como SQLite o MySQL
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Pasos
+1. **Clonar el repositorio**
+   ```bash
+   git clone https://github.com/NorvicSoftware/mascotas
+   Ingresamos al proyecto (cd mascotas)
+   Instalamos las dependencias del proyecto (composer install)
+   Crear el archivo de configuración .env (cp .env.example .env)
+   Generamos la llave de la aplicación (php artisan key:generate)
+   Ejecutamos las migraciones y los seeder (php artisan migrate --seed)
+   Ejecutamos el servidor local (php artisan serve)
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### Configuración de la Base de Datos
+1. **SQLite**
+```bash
+   Crear el archivo "database.sqlite" en la carpeta 
+   ```
+2. **MySQL**
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+```bash
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=mascotas-db
+   DB_USERNAME=root
+   DB_PASSWORD=
+   ```
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## Uso
+- **Registro de Refugios**: Los usuarios pueden registrar refugios.
+- **Registro de Mascotas**: Los usuarios pueden registrar Mascotas.
+- **Ver Detalles de Mascotas**: Hacer clic en una mascota para ver información detallada mas la imagen de la mascota.
+- **registro de personas**: Los usuarios pueden registrar personas.
+- **Registrar Solicitudes de Adopción**: Llenar el formulario de adopción para registrar la adopción.
 
-### Premium Partners
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Licencia
+Este proyecto está licenciado bajo la Licencia MIT
