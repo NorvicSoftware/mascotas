@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Mascota extends Model
 {
@@ -27,7 +27,7 @@ class Mascota extends Model
         return $this->belongsTo(Refugio::class);
     }
 
-    public function adopcion(): HasOne{
-        return $this->hasOne(Adopcion::class);
+    public function adopciones(): HasMany{
+        return $this->hasMany(Adopcion::class);
     }
 }

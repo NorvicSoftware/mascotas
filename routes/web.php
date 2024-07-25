@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RefugioController;
 use App\Http\Controllers\MascotaController;
 use App\Http\Controllers\PersonaController;
+use App\Http\Controllers\AdopcionController;
 use App\Http\Controllers\Reportes\ReporteMascotaController;
 
 
@@ -31,6 +32,14 @@ Route::get('/personas/mostrar/{id}', [PersonaController::class, 'show']);
 Route::get('/personas/editar/{id}', [PersonaController::class, 'edit']);
 Route::put('/personas/actualizar/{id}', [PersonaController::class, 'update'])->name('personas.actualizar');
 Route::delete('/personas/eliminar/{id}', [PersonaController::class, 'destroy'])->name('personas.eliminar');
+
+Route::get('/adopciones', [AdopcionController::class, 'index']);
+Route::get('/adopciones/registrar', [AdopcionController::class, 'create']);
+Route::post('/adopciones/registrar', [AdopcionController::class, 'store'])->name('adopciones.registrar');
+Route::get('/adopciones/mostrar/{id}', [AdopcionController::class, 'show']);
+Route::get('/adopciones/editar/{id}', [AdopcionController::class, 'edit']);
+Route::put('/adopciones/actualizar/{id}', [AdopcionController::class, 'update'])->name('adopciones.actualizar');
+Route::delete('/adopciones/eliminar/{id}', [AdopcionController::class, 'destroy'])->name('adopciones.eliminar');
 
 
 Route::get('/reportes/mascotas', [ReporteMascotaController::class, 'listar'])->name('reportes.mascota.listar');

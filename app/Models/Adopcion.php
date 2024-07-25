@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Adopcion extends Model
@@ -13,8 +12,8 @@ class Adopcion extends Model
     protected $table = 'adopciones';
     protected $fillable = ['fecha', 'mascota_id', 'persona_id'];
 
-    public function mascota(): HasOne{
-        return $this->hasOne(Mascota::class);
+    public function mascota(): BelongsTo{
+        return $this->belongsTo(Mascota::class);
     }
 
     public function persona():BelongsTo{
