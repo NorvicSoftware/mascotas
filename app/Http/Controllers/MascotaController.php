@@ -15,6 +15,7 @@ class MascotaController extends Controller
     public function index()
     {
         $mascotas = Mascota::all();
+        // $mascotas = Mascota::all();
         // $mascotas =  Mascota::where('edad', '>', 5)->get();
         // $mascotas = DB::table('mascotas')->get();
         // return response()->json($mascotas);
