@@ -22,7 +22,8 @@ class ReporteMascotaController extends Controller
 
     public function listar()
     {
-        return view('reportes.mascotas.listar', ['mascotas' => $this->mascotasA->getMascotas()]);
+        $mascotas = DB::table('mascotas')->join('refugios', 'refugios.id', '=', 'mascotas.refugio_id')->where('edad', '>', 3)->select('mascotas.nombre as mascota', 'refugios.nombre', 'mascotas.edad')->get();
+        return view('reportes.mascotas.listar', ['mascotas' => $mascotas]);
     }
 
     public function pdf()

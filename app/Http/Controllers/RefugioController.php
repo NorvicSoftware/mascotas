@@ -36,13 +36,15 @@ class RefugioController extends Controller
             'encargado' => 'required|max:75',
         ]);
 
-        $refugio = new Refugio();
-        $refugio->nombre = $request->nombre;
-        $refugio->ciudad = $request->ciudad;
-        $refugio->direccion = $request->direccion;
-        $refugio->telefono = $request->telefono;
-        $refugio->encargado = $request->encargado;
-        $refugio->save(); 
+        $refugio = DB::table('refugios')->insert(['nombre' => $request->nombre, 'ciudad' => $request->ciudad, 'encargado' => $request->encargado]);
+
+        // $refugio = new Refugio();
+        // $refugio->nombre = $request->nombre;
+        // $refugio->ciudad = $request->ciudad;
+        // $refugio->direccion = $request->direccion;
+        // $refugio->telefono = $request->telefono;
+        // $refugio->encargado = $request->encargado;
+        // $refugio->save(); 
 
         return redirect()->action([RefugioController::class, 'index']);
 

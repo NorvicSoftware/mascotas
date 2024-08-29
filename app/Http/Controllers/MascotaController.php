@@ -14,11 +14,14 @@ class MascotaController extends Controller
      */
     public function index()
     {
-        $mascotas = Mascota::all();
+        // $mascotas = Mascota::all();
         // $mascotas =  Mascota::where('edad', '>', 5)->get();
         // $mascotas = DB::table('mascotas')->get();
         // return response()->json($mascotas);
-        return view('mascotas.listar', ['mascotas' => $mascotas]);
+        // $mascotas = Mascota::where('nombre', '=', 'Rex')->get();
+        $mas = Mascota::where('nombre', '=', 'Nupi')->first();
+        // $mas->vacunas;
+        return view('mascotas.listar', ['mascotas' => $mas->vacunas]);
     }
 
     /**
@@ -47,13 +50,23 @@ class MascotaController extends Controller
 
         $mascota = new Mascota();
         $mascota->nombre = $request->nombre;
+        $mascota->tipo = 'Perro';
+        $mascota->edad = 3;
         $mascota->codigo = $request->codigo;
-        $mascota->tipo = $request->tipo;
-        $mascota->edad = $request->edad;
-        $mascota->raza = $request->raza;
-        $mascota->color = $request->color;
-        $mascota->pedigri = $request->pedigri;
-        $mascota->refugio_id = $request->refugio_id;
+        $mascota->raza = 'Golden';
+        $mascota->refugio_id = 7;
+        $mascota->color = 'Dorado';
+        $mascota->save();
+
+        // $mascota = new Mascota();
+        // $mascota->nombre = $request->nombre;
+        // $mascota->codigo = $request->codigo;
+        // $mascota->tipo = $request->tipo;
+        // $mascota->edad = $request->edad;
+        // $mascota->raza = $request->raza;
+        // $mascota->color = $request->color;
+        // $mascota->pedigri = $request->pedigri;
+        // $mascota->refugio_id = $request->refugio_id;
         if ($request->hasFile('image')) {
             $image_path = 'public/images';
             $image = $request->file('image');
@@ -61,7 +74,6 @@ class MascotaController extends Controller
             $request->file('image')->storeAs($image_path, $name_image);
 
             $mascota->url = $name_image;
-            
         }
         $mascota->save();
 

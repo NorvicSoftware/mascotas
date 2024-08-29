@@ -10,11 +10,12 @@ class Adopcion extends Model
 {
     use HasFactory;
     protected $table = 'adopciones';
-    protected $fillable = ['fecha', 'mascota_id', 'persona_id'];
+    protected $fillable = ['fecha', 'detalle', 'mascota_id', 'persona_id'];
 
     public function mascota(): BelongsTo{
         return $this->belongsTo(Mascota::class);
     }
+
 
     public function persona():BelongsTo{
         return $this->belongsTo(Persona::class);
